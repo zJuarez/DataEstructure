@@ -1,0 +1,73 @@
+#include <iostream>
+using namespace std;
+
+
+void despliega(int mat[4][4])
+{
+for(int i=0;i<4;i++)
+{
+  for(int j=0;j<4;j++)
+  {
+  cout<<mat[i][j];
+  if(j!=3)
+  cout<<" ";
+  }
+  cout<<endl;
+}
+}
+int main() {
+
+  int mat[4][4];
+  int vMat[4][4];
+
+  int n;
+  cin>>n;
+
+for (int i=0;i<4;i++)
+{
+  for(int j=0;j<4;j++)
+{
+  cin>>mat[i][j];
+}
+}
+n=n%4;
+
+while(n!=0)
+{
+for(int i=0;i<4;i++)
+  {
+    for(int j=0;j<4;j++)
+    {
+    int ne1;
+    int ne2;
+if(n<0)
+{
+ne1=j;
+ne2=3-i;
+}
+else
+{
+  ne1=3-j;
+  ne2=i;
+}
+vMat[i][j]=mat[ne1][ne2];
+    }
+  }
+
+
+  if(n<0)
+  n++;
+  else
+  n--;
+
+  for(int i=0;i<4;i++)
+  {
+    for (int j=0;j<4;j++){
+    mat[i][j]=vMat[i][j];
+    }
+  }
+}
+despliega(vMat);
+
+return 0;
+}
